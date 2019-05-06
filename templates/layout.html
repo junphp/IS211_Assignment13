@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>STUDENT MANAGEMENT SYSTEM</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="FLASK BLOG">
+        <meta name="author" content="JUN AN">
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    </head>
+    <body>
+        <header class="site-header">
+        </header>
+        <main role="main">
+            <!-- main content block -->
+            {% block content %}
+            {% endblock %}
+        </main>
+        <!-- Custom scripts -->
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

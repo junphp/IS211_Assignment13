@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+
+</style>
+        <div class="container">
+            {% if error == 't': %}
+                <div class="alert">
+                    <span class="close_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Adding quiz is failed. Please try again.
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-6" style="margin:0px auto;">
+                    <h2>ADD NEW QUIZ</h2>
+                    <form action="/quiz/add" method="POST">
+                        <div class="form-group">
+                            <div class="col-25">
+                                <label for="subject">Subject</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" class="form-control" id="subject" placeholder="Enter Subject" name="subject">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-25">
+                                <label for="questions">Questions</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" class="form-control" id="questions" placeholder="Enter Questions" name="questions">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-25">
+                                <label for="quizDate">Quiz Date</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" class="form-control" id="quizDate" placeholder="Enter Quiz Date" name="quizDate">
+                            </div>
+                        </div>
+                        <div class="row" style="text-align: center; padding: 20px;">
+                            <button type="submit" class="button btn btn-default" style="margin-top: 20px;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("firstName").focus()
+    };
+</script>
+{% endblock %}

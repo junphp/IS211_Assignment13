@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2 class="students" style="padding:10px">View Quiz Result</h2>
+        {% if results|length > 0 %}
+        <div class="students" style="text-align: center; padding: 20px;">
+            <a class="button btn btn-blog pull-right marginBottom10" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+        <table class="students">
+                <tr>
+                    <th>Quiz ID</th>
+                    <th>Subject</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                    <th>&nbsp;</th>
+                </tr>
+                {% for result in results %}
+                    <tr>
+                        <td>{{result[1]}}</td>
+                        <td>{{result[5]}}</td>
+                        <td>{{result[3]}}</td>
+                        <td>{{result[7]}}</td>
+                        <td style="text-align:center;"><a class="button2" href="{{ url_for('delete_result', id=result[0]) }}">DELETE</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else: %}
+            <div class="container">
+                <p><h2 style="text-align: center; padding: 20px;">No Results</h2></p>
+                <div class="students" style="text-align: center; padding: 20px;">
+                    <a class="button btn btn-blog pull-right marginBottom10" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+                </div>
+            </div>
+        {% endif %}
+{% endblock %}

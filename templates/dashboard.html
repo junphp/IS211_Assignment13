@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<style>
+
+</style>
+    <div class="students" style="text-align: center; padding: 20px;">
+        <a class="button btn btn-blog pull-right marginBottom10" href="{{ url_for('create_quiz_result',error='f') }}">Add Quiz Result</a>
+    </div>
+    <!-- STUDENT INFORMATION TABLE -->
+    <h2 class="students" style="padding:10px">Student Enrolled in Class</h2>
+    <table class="students">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last  Name</th>
+            <th>&nbsp;</th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td><a href="{{ url_for('view_quiz_result', id=student[0]) }}">{{student[0]}}</a></td>
+                <td>{{student[1]}}</td>
+                <td>{{student[2]}}</td>
+                <td style="text-align:center;"><a class="button2" href="{{ url_for('delete_student', id=student[0]) }}">DELETE</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="students" style="text-align: center; padding: 20px;">
+        <a class="button btn btn-blog pull-right marginBottom10" href="{{ url_for('create_student',error='f') }}">Add Student</a>
+    </div>
+    <div style="padding:20px;">&nbsp;</div>
+    <!-- QUIZ DATA TABLE -->
+    <h2 class="students" style="padding:10px">Student Quiz Data</h2>
+        <table class="students">
+            <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Questions</th>
+                <th>Quiz Date</th>
+                <th>&nbsp;</th>
+            </tr>
+            {% for quiz in quizs %}
+                <tr>
+                    <td>{{quiz[0]}}</td>
+                    <td>{{quiz[1]}}</td>
+                    <td>{{quiz[2]}}</td>
+                    <td>{{quiz[3]}}</td>
+                    <td style="text-align:center;"><a class="button2" href="{{ url_for('delete_quiz', id=quiz[0]) }}">DELETE</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="students" style="text-align: center; padding: 20px;">
+            <a class="button btn btn-blog pull-right marginBottom10" href="{{ url_for('create_quiz',error='f') }}">Add Quiz</a>
+        </div>
+{% endblock %}
+
